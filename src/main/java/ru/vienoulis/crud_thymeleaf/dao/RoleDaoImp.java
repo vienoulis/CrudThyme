@@ -15,6 +15,7 @@ public class RoleDaoImp implements RoleDao {
     @PersistenceContext
     private EntityManager entityManager;
 
+
     @Override
     public Role getRoleByName(String role) {
         return (Role) entityManager.createQuery("from Role where role= :rl")

@@ -16,7 +16,11 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-        <strong>[[${visitor.name}]]</strong> [[${visitor.email}]]
+        <strong>[[${visitor.email}]]</strong>
+        with roles:
+        <ui th:each="role:${visitor.roleSet}">
+            <ui th:text="${role.toString().toUpperCase()}"></ui>
+        </ui>
     </a>
 
     <ul class="navbar-nav mr-auto">
@@ -61,6 +65,7 @@
                                             <th scope="col">Last name:</th>
                                             <th scope="col"> Age:</th>
                                             <th scope="col"> Email:</th>
+                                            <th scope="col"> Role:</th>
 
                                         </tr>
                                         </thead>
@@ -84,7 +89,11 @@
                                                 <td>
                                                     <ui th:text="${user.email}"></ui>
                                                 </td>
-
+                                                <td>
+                                                    <ui th:each="role:${user.roleSet}">
+                                                        <ui th:text="${role.toString()}"></ui>
+                                                    </ui>
+                                                </td>
 
                                             </tr>
 
