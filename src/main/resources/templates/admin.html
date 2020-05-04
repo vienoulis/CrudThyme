@@ -220,12 +220,9 @@
                                                                                     <div class="col form-group">
                                                                                         <select name="roleList" size="2"
                                                                                                 class="form-control">
-                                                                                            <option value="ROLE_ADMIN">
-                                                                                                ADMIN
-                                                                                            </option>
-                                                                                            <option value="ROLE_USER">
-                                                                                                USER
-                                                                                            </option>
+                                                                                            <ui th:each="role:${visitor.roleSet}">
+                                                                                                <option th:text="${role.role.toUpperCase()}"></option>
+                                                                                            </ui>
                                                                                         </select>
                                                                                     </div>
 
@@ -385,12 +382,9 @@
                                                                                         <fieldset disabled>
                                                                                         <select name="roleList" size="2"
                                                                                                 class="form-control">
-                                                                                            <option value="ROLE_ADMIN">
-                                                                                                ADMIN
-                                                                                            </option>
-                                                                                            <option value="ROLE_USER">
-                                                                                                USER
-                                                                                            </option>
+                                                                                            <ui th:each="role:${visitor.roleSet}">
+                                                                                                <option th:text="${role.role.toUpperCase()}"></option>
+                                                                                            </ui>
                                                                                         </select>
                                                                                         </fieldset>
                                                                                     </div>
