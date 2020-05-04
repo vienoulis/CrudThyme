@@ -105,11 +105,11 @@
                                                 </td>
                                                 <td>
 
-                                                        <button type="button" class="btn btn-info" data-toggle="modal"
-                                                                th:data-target="|#editModal${user.id}|">
-                                                            Edit
-                                                        </button>
-                                                        <form method="post" action="/admin/update">
+                                                    <button type="button" class="btn btn-info" data-toggle="modal"
+                                                            th:data-target="|#editModal${user.id}|">
+                                                        Edit
+                                                    </button>
+                                                    <form method="post" action="/admin/update">
                                                         <div class="modal fade" th:id="|editModal${user.id}|"
                                                              tabindex="-1" role="dialog"
                                                              aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -230,12 +230,9 @@
                                                                                     <div class="col form-group">
                                                                                         <select name="roleList" size="2"
                                                                                                 class="form-control">
-                                                                                            <option value="ROLE_ADMIN">
-                                                                                                ADMIN
-                                                                                            </option>
-                                                                                            <option value="ROLE_USER">
-                                                                                                USER
-                                                                                            </option>
+                                                                                            <ui th:each="role:${visitor.roleSet}">
+                                                                                                <option th:text="${role.role.toUpperCase()}"></option>
+                                                                                            </ui>
                                                                                         </select>
                                                                                     </div>
 
@@ -312,10 +309,10 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <input type="text"
-                                                                                               class="form-control"
-                                                                                               name="name"
-                                                                                               th:value="${user.name}"/>
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   name="name"
+                                                                                                   th:value="${user.name}"/>
                                                                                         </fieldset>
                                                                                     </div>
                                                                                 </div>
@@ -329,10 +326,10 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <input type="text"
-                                                                                               class="form-control"
-                                                                                               name="lastName"
-                                                                                               th:value="${user.lastName}"/>
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   name="lastName"
+                                                                                                   th:value="${user.lastName}"/>
                                                                                         </fieldset>
                                                                                     </div>
                                                                                 </div>
@@ -346,10 +343,10 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <input type="number"
-                                                                                               class="form-control"
-                                                                                               name="age"
-                                                                                               th:value="${user.age}"/>
+                                                                                            <input type="number"
+                                                                                                   class="form-control"
+                                                                                                   name="age"
+                                                                                                   th:value="${user.age}"/>
                                                                                         </fieldset>
                                                                                     </div>
                                                                                 </div>
@@ -362,10 +359,10 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <input type="email"
-                                                                                               class="form-control"
-                                                                                               name="email"
-                                                                                               th:value="${user.email}"/>
+                                                                                            <input type="email"
+                                                                                                   class="form-control"
+                                                                                                   name="email"
+                                                                                                   th:value="${user.email}"/>
                                                                                         </fieldset>
                                                                                     </div>
                                                                                 </div>
@@ -378,10 +375,10 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <input type="password"
-                                                                                               class="form-control"
-                                                                                               name="password"
-                                                                                               th:value="${user.password}"/>
+                                                                                            <input type="password"
+                                                                                                   class="form-control"
+                                                                                                   name="password"
+                                                                                                   th:value="${user.password}"/>
                                                                                         </fieldset>
                                                                                     </div>
                                                                                 </div>
@@ -393,15 +390,13 @@
                                                                                 <div class="row">
                                                                                     <div class="col form-group">
                                                                                         <fieldset disabled>
-                                                                                        <select name="roleList" size="2"
-                                                                                                class="form-control">
-                                                                                            <option value="ROLE_ADMIN">
-                                                                                                ADMIN
-                                                                                            </option>
-                                                                                            <option value="ROLE_USER">
-                                                                                                USER
-                                                                                            </option>
-                                                                                        </select>
+                                                                                            <select name="roleList"
+                                                                                                    size="2"
+                                                                                                    class="form-control">
+                                                                                                <ui th:each="role:${visitor.roleSet}">
+                                                                                                    <option th:text="${role.role.toUpperCase()}"></option>
+                                                                                                </ui>
+                                                                                            </select>
                                                                                         </fieldset>
                                                                                     </div>
 

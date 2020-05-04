@@ -78,7 +78,8 @@
 
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <input type="text" class="form-control" name="name" placeholder="First name"/>
+                                                        <input type="text" class="form-control" name="name"
+                                                               placeholder="First name"/>
                                                     </div>
                                                 </div>
 
@@ -90,7 +91,8 @@
 
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <input type="text" class="form-control" name="lastName" placeholder="Last name"/>
+                                                        <input type="text" class="form-control" name="lastName"
+                                                               placeholder="Last name"/>
                                                     </div>
                                                 </div>
 
@@ -102,7 +104,8 @@
 
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <input type="number" class="form-control" name="age" value="Age"/>
+                                                        <input type="number" class="form-control" name="age"
+                                                               value="Age"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -113,7 +116,8 @@
 
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <input type="email" class="form-control" name="email" placeholder="Email"/>
+                                                        <input type="email" class="form-control" name="email"
+                                                               placeholder="Email"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -124,22 +128,24 @@
 
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <input type="password" class="form-control" name="password" placeholder="Password"/>
+                                                        <input type="password" class="form-control" name="password"
+                                                               placeholder="Password"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col form-group">
-                                                        <select name="roleList" size="2" class="form-control" >
-                                                            <option value="ROLE_ADMIN">ADMIN</option>
-                                                            <option value="ROLE_USER">USER</option>
+                                                        <select name="roleList" size="2" class="form-control">
+                                                            <ui th:each="role:${visitor.roleSet}">
+                                                                <option th:text="${role.role.toUpperCase()}"></option>
+                                                            </ui>
                                                         </select>
                                                     </div>
-
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-3"></div>
                                                     <div class="col -6 form-group">
-                                                        <input type="submit" class="btn btn-block btn-success" name= "submit" value="Add new user"/>
+                                                        <input type="submit" class="btn btn-block btn-success"
+                                                               name="submit" value="Add new user"/>
                                                     </div>
                                                     <div class="col-3"></div>
                                                 </div>
