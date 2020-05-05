@@ -18,8 +18,8 @@ public class Role implements GrantedAuthority {
     @Column(name = "role")
     private String role;
 
-    @ManyToMany(mappedBy = "roleSet")
-    private Set<User> userSet = new HashSet<>();
+//    @ManyToMany(mappedBy = "roleSet")
+//    private Set<User> userSet = new HashSet<>();
 
     public Role() {
     }
@@ -46,13 +46,13 @@ public class Role implements GrantedAuthority {
         this.role = role;
     }
 
-    public Set<User> getUserSet() {
-        return userSet;
-    }
-
-    public void setUserSet(Set<User> userSet) {
-        this.userSet = userSet;
-    }
+//    public Set<User> getUserSet() {
+//        return userSet;
+//    }
+//
+//    public void setUserSet(Set<User> userSet) {
+//        this.userSet = userSet;
+//    }
 
     @Override
     public String toString() {
