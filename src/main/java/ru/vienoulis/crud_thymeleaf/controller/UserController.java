@@ -37,6 +37,11 @@ public class UserController {
         return "user";
     }
 
+    @GetMapping("/test")
+    public String getTest(){
+        return "test";
+    }
+
     @GetMapping(value = "login")
     public String loginPage() {
         return "login";
@@ -69,25 +74,27 @@ public class UserController {
         return "redirect:/admin";
     }
 
+    // -----------------------------------------------------------------------------------------//
+
     @PostMapping("/admin/delete")
-    public String postDelete(String id, ModelMap map) {
+    public String postDelete(Long id, ModelMap map) {
         userService.delete(id);
         map.addAttribute("users", userService.getUsers());
 
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/update")
-    public String getUpdate(Long userId, ModelMap map) {
-        User user = userService.getUserById(userId);
-        map.addAttribute("userUpdated", user);
-        map.addAttribute("roles", roleService.getAllRoles());
-        return "update";
-    }
+//    @GetMapping("/admin/update")
+//    public String getUpdate(Long userId, ModelMap map) {
+//        User user = userService.getUserById(userId);
+//        map.addAttribute("userUpdated", user);
+//        map.addAttribute("roles", roleService.getAllRoles());
+//        return "update";
+//    }
 
     @PostMapping("/admin/update")
-    public String postUpdate(User user, String... roleList) {
-        userService.updateUser(user, roleList);
+    public String postUpdate(Long id, String... roleList) {
+//        userService.updateUser(id, roleList);
         return "redirect:/admin";
     }
 }

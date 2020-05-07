@@ -9,9 +9,9 @@ public interface UserService {
 
     void add(User user, String[] roleList);
 
-    void updateUser( User user, String[] roleList);
+    void updateUser( User user);
 
-    void delete(String userId);
+    void delete(Long userId);
 
     User getUserByName(String name);
 

@@ -4,11 +4,16 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@XmlRootElement
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -31,6 +36,7 @@ public class User implements UserDetails {
 
     @Column(name = "password")
     private String password;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -59,6 +65,8 @@ public class User implements UserDetails {
         this.password = password;
     }
 
+    @XmlID
+    @XmlJavaTypeAdapter(value = LongAdapter.class, type = String.class)
     public long getId() {
         return id;
     }
@@ -75,6 +83,7 @@ public class User implements UserDetails {
         this.name = name;
     }
 
+    @XmlIDREF
     public Set<Role> getRoleSet() {
         return roleSet;
     }

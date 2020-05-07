@@ -49,18 +49,19 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void updateUser (User user, String[] roleList){
-        user.setRoleSet(Arrays.stream(roleList)
-                .map(x->roleDao.getRoleByName(x))
-                .collect(Collectors.toSet())
-        );
+    public void updateUser (User user){
+//        User user = getUserById(id);
+//        user.setRoleSet(Arrays.stream(roleList)
+//                .map(x->roleDao.getRoleByName(x))
+//                .collect(Collectors.toSet())
+//        );
         dao.update(user);
     }
 
     @Override
     @Transactional
-    public void delete(String userId) {
-            dao.delete(Long.parseLong(userId));
+    public void delete(Long userId) {
+            dao.delete(userId);
     }
 
     @Override

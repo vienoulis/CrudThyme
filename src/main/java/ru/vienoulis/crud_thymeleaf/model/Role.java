@@ -3,10 +3,15 @@ package ru.vienoulis.crud_thymeleaf.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@XmlRootElement
 @Entity
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
@@ -14,6 +19,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @Column(name = "role")
     private String role;
@@ -30,6 +36,8 @@ public class Role implements GrantedAuthority {
         this.role = role;
     }
 
+//    @XmlID
+//    @XmlJavaTypeAdapter(value = LongAdapter.class, type = String.class)
     public Long getId() {
         return id;
     }
@@ -37,6 +45,7 @@ public class Role implements GrantedAuthority {
     public void setId(Long ig) {
         this.id = ig;
     }
+
 
     public String getRole() {
         return role;
@@ -46,13 +55,12 @@ public class Role implements GrantedAuthority {
         this.role = role;
     }
 
+//    @XmlIDREF
 //    public Set<User> getUserSet() {
 //        return userSet;
 //    }
-//
-//    public void setUserSet(Set<User> userSet) {
-//        this.userSet = userSet;
-//    }
+
+//    pu
 
     @Override
     public String toString() {
