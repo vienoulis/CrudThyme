@@ -9,7 +9,7 @@ public interface UserService {
 
     void add(User user, String[] roleList);
 
-    void updateUser( User user);
+    void updateUser( User user, String ... roleList);
 
     void delete(Long userId);
 

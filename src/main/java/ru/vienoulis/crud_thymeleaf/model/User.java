@@ -65,8 +65,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    @XmlID
-    @XmlJavaTypeAdapter(value = LongAdapter.class, type = String.class)
     public long getId() {
         return id;
     }
@@ -83,7 +81,6 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    @XmlIDREF
     public Set<Role> getRoleSet() {
         return roleSet;
     }

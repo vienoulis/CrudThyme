@@ -22,11 +22,6 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
-    @GetMapping(value = "/**")
-    public String getAll() {
-        return "redirect:/login";
-    }
-
     @GetMapping(value = "user")
     public String getUser(ModelMap map, Authentication authentication) {
         User visitor = (User) authentication.getPrincipal();
@@ -35,11 +30,6 @@ public class UserController {
         map.addAttribute("users", users);
         map.addAttribute("visitor", visitor);
         return "user";
-    }
-
-    @GetMapping("/test")
-    public String getTest(){
-        return "test";
     }
 
     @GetMapping(value = "login")
@@ -57,14 +47,6 @@ public class UserController {
         return "admin";
     }
 
-    @GetMapping("/admin/user")
-    public String getNewUser(ModelMap map, Authentication authentication) {
-        User user = (User) authentication.getPrincipal();
-        map.addAttribute("visitor",user);
-
-        return "newuser";
-    }
-
     @PostMapping("/admin/user")
     public String postNewUser(ModelMap map, Authentication authentication, User user, String ...roleList) {
         userService.add(user, roleList);
@@ -75,14 +57,14 @@ public class UserController {
     }
 
     // -----------------------------------------------------------------------------------------//
-
-    @PostMapping("/admin/delete")
-    public String postDelete(Long id, ModelMap map) {
-        userService.delete(id);
-        map.addAttribute("users", userService.getUsers());
-
-        return "redirect:/admin";
-    }
+//
+//    @PostMapping("/admin/delete")
+//    public String postDelete(Long id, ModelMap map) {
+//        userService.delete(id);
+//        map.addAttribute("users", userService.getUsers());
+//
+//        return "redirect:/admin";
+//    }
 
 //    @GetMapping("/admin/update")
 //    public String getUpdate(Long userId, ModelMap map) {
@@ -92,9 +74,9 @@ public class UserController {
 //        return "update";
 //    }
 
-    @PostMapping("/admin/update")
-    public String postUpdate(Long id, String... roleList) {
-//        userService.updateUser(id, roleList);
-        return "redirect:/admin";
-    }
+//    @PostMapping("/admin/update")
+//    public String postUpdate(Long id, String... roleList) {
+////        userService.updateUser(id, roleList);
+//        return "redirect:/admin";
+//    }
 }
