@@ -8,6 +8,7 @@ function createTable() {
         success: function (data) {
             data.forEach(el => {
                 let tr = document.createElement('tr');
+                tr.id= el.id;
                 let roles = "";
                 el.roleSet.forEach(obj => {
                     roles = roles + " " + obj.role;

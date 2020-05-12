@@ -7,14 +7,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.sql.DataSource;
 //@ComponentScan("crud_thymeleaf")
 
 @Configuration
-@EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 public class CrudConfig  {
     @Autowired
@@ -54,8 +52,6 @@ public class CrudConfig  {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/templates/");
         resolver.setSuffix(".html");
-//        resolver.setViewClass(TemplateMode.class);
-
         return resolver;
     }
 

@@ -25,9 +25,9 @@ public class UserController {
     @GetMapping(value = "user")
     public String getUser(ModelMap map, Authentication authentication) {
         User visitor = (User) authentication.getPrincipal();
-        List<User> users= new ArrayList<>();
-        users.add(visitor);
-        map.addAttribute("users", users);
+//        List<User> users= new ArrayList<>();
+//        users.add(visitor);
+//        map.addAttribute("users", users);
         map.addAttribute("visitor", visitor);
         return "user";
     }
@@ -39,10 +39,10 @@ public class UserController {
 
     @GetMapping("/admin")
     public String getAdmin(ModelMap map, Authentication authentication) {
-        List<User> users = userService.getUsers();
+//        List<User> users = userService.getUsers();
         User user = (User) authentication.getPrincipal();
         map.addAttribute("visitor",user);
-        map.addAttribute("users", users);
+//        map.addAttribute("users", users);
         map.addAttribute("roles", roleService.getAllRoles());
         return "admin";
     }

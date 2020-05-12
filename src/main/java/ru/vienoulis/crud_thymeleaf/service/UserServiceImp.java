@@ -49,12 +49,13 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void updateUser (User user, String...roleList){
+    public User updateUser (User user, String...roleList){
         user.setRoleSet(Arrays.stream(roleList)
                 .map(x->roleDao.getRoleByName(x))
                 .collect(Collectors.toSet())
         );
         dao.update(user);
+        return user;
     }
 
     @Override

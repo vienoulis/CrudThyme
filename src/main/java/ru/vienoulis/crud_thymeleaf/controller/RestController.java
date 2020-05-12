@@ -13,10 +13,14 @@ import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private RoleService roleService;
+    private final UserService userService;
+
+    private final RoleService roleService;
+
+    public RestController(UserService userService, RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
+    }
 
     @GetMapping(value = "/GET/user")
     public User getUser( Authentication authentication) {
@@ -34,12 +38,13 @@ public class RestController {
     }
 
     @PostMapping("/POST/delete")
-    public void postDelete(Long id) {
+    public long postDelete(Long id) {
         userService.delete(id);
+        return id;
     }
     @PostMapping("/POST/update")
-    public void postUpdateUser(User user, String ...roleList){
-        userService.updateUser(user, roleList);
+    public User postUpdateUser(User user, String ...roleList){
+        return userService.updateUser(user, roleList);
     }
 
     @GetMapping("/GET/role/list")
